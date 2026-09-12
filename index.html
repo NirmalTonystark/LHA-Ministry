@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LHA Ministries</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="Main.css" />
+
+    <!-- Fonts: Playfair Display for elegant headings, Poppins for clean body text,
+         Noto Sans Tamil for crisp, properly-rendered Tamil script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+      * {
+
+    scroll-behavior: smooth;
+
+}
+
+      /* ---------- FONT SYSTEM ---------- */
+      body {
+        font-family: 'Poppins', 'Noto Sans Tamil', 'Segoe UI', sans-serif;
+        font-weight: 400;
+      }
+
+      h1, h2, h3 {
+    font-family: 'Playfair Display', 'Noto Sans Tamil', serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+      /* Tamil scripture / headings get the Tamil-optimized font so glyphs
+         render clearly instead of falling back to a generic system font */
+      .tamil-head {
+        font-family: 'Noto Sans Tamil', 'Playfair Display', serif;
+      }
+
+      .ver {
+        font-family: 'Noto Sans Tamil', 'Poppins', serif;
+      }
+
+      #heading {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      #list {
+        font-family: 'Poppins', sans-serif;
+      }
+
+#nav {
+
+    background-color: #3b2416;
+    border: 2px solid black;
+
+}
+
+#nav a{
+
+    color: #fff8e7;
+
+}
+
+#nav a:hover{
+
+    color: gold;
+
+}
+
+#heading {
+
+    color: black;
+    font-weight: 500;
+
+}
+
+#list {
+
+    color: black; 
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 500;
+
+}
+
+.eyebrow-pill {
+
+    border: 2px solid orange;
+    border-radius: 10px 10px 10px;
+    padding:  10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+
+}
+
+.eyebrow-pill:hover {
+
+    color: black;
+    background-color: orange;
+    transition: 0.5s;
+
+}
+
+.tamil-head {
+
+    font-size: 22px;
+    font-weight: 700;
+
+}
+
+#ver {
+
+    border: 2px solid #d8c79a;
+    border-radius: 1px 1px 1px;
+    padding: 20px;
+    background-color: #fffdf7;
+    font-size: 20px;
+
+}
+
+.ver {
+
+    font-weight: 500;
+
+}
+
+#mesbtn {
+
+    border: 2px solid #c9a227;
+    padding: 15px;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+
+}
+
+#mesbtn:hover {
+
+    color: black;
+    background-color: orange;
+    transition: 0.5s;
+
+}
+
+#serv {
+
+    border: 4px solid #c9a227;
+    padding: 50px;
+    list-style: none;
+    align-items: center;
+
+}
+
+#serv:hover {
+
+    border: 4px solid red;
+    border-radius: 15px;
+    transition: 0.5s;
+
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 28px;
+}
+
+.card {
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 32px 26px;
+    transition: transform 0.18s, box-shadow 0.18s;
+    border: 2px solid blue;
+}
+
+.card:hover { 
+    transform: translateY(-6px); 
+    box-shadow: 0 16px 30px rgba(0,0,0,0.07); 
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.card-icon {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+}
+
+.events-list { display: flex; flex-direction: column; gap: 16px; }
+  .event-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    border-radius: 18px;
+    padding: 20px 24px;
+    flex-wrap: wrap;
+  }
+  .date-badge {
+    color: purple;
+    border-radius: 14px;
+    padding: 12px 16px;
+    text-align: center;
+    min-width: 74px;
+    font-family: 'Fredoka', sans-serif;
+  }
+  .date-badge .day { font-size: 1.5rem; font-weight: 600; line-height: 1; }
+  .date-badge .mon { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  .event-info { flex: 1; min-width: 200px; }
+  .event-info h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 4px; }
+  .event-info p { font-size: 0.9rem; }
+
+    footer {
+    background-color: #3b2416;
+    padding: 56px 0 28px;
+    margin-top: 40px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 36px;
+    margin-bottom: 36px;
+  }
+  .footer-grid h4 { color: white; font-size: 1rem; margin-bottom: 16px; font-family: 'Playfair Display', serif; font-weight: 600; }
+  .footer-grid ul { list-style: none; }
+  .footer-grid li { margin-bottom: 10px; font-size: 0.92rem; }
+  .footer-grid a { color: white; text-decoration:none; transition:0.3s; }
+  .footer-grid a:hover { color: gold; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; color: white; font-size: 1.15rem; font-family: 'Playfair Display', serif; margin-bottom: 14px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #90999b;
+  }
+
+  @media (max-width: 860px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 540px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg sticky-top " id="nav">
+      <img src="cropped2.png" class="img-thumbnail mx-2 bg-dark" alt="logo" width="50px" height="50px" id="logo">
+      <a class="navbar-brand" href="#" id="heading">LHA MINISTRIES</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="btn1">
+        <span class="navbar-toggler-icon" id="toggle"></span>
+      </button>
+      <div class="collapse navbar-collapse ms1" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto text-center" id="nav-lists">
+          <li class="nav-item mx-3" >
+            <a href="#home" id="list">Home</a>
+          </li>
+
+          <li class="nav-item mx-3">
+            <a href="#messages" id="list">Messages</a>
+          </li>
+
+          <li class="nav-item mx-3">
+            <a href="#pt" id="list">Prayer Timings</a>
+          </li>
+
+          <li class="nav-item mx-3">
+            <a href="#Events" id="list">Events</a>
+          </li>
+
+          <li class="nav-item mx-3">
+            <a href="#contact" id="list">About</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </nav><hr>
+
+<section class="hero mt-5" id="home">
+  <div class="hero-grid">
+    <div>
+      <span class="tamil-head d-flex justify-content-center">"✝️சேனைகளின் கர்த்தர் சபை✝️"</span>
+      <span class="eyebrow-pill mt-3 d-flex justify-content-center">You're invited, just as you are</span>
+      <img src="1786154353003.png" class="img-fluid" alt="lha" >
+      <div class="container" id="ver">
+      <h1 class="text-center" style="color:#c9a227">📖 Bible Verse 📖</h1><hr>
+      <h3 class="text-center" style="color: green;"> 🕊️ ஏசாயா 6:3</h3><br>
+      <p class="ver" style="font-weight: 500; color: #4a3428;">✞​ ஒருவரையொருவர் நோக்கி: சேனைகளின் கர்த்தர் பரிசுத்தர், பரிசுத்தர், பரிசுத்தர், பூமியனைத்தும் அவருடைய மகிமையால் நிறைந்திருக்கிறது என்று கூப்பிட்டார்கள். ✞​</p>
+     <h3 class="text-center" style="color: green;">Isaiah 6:3 🕊️</h3>
+      <p class="ver" style="color: #6b6258;">✞​ "And one cried unto another, and said, Holy, holy, holy, is the LORD of hosts: the whole earth is full of his glory." ✞​</p>
+      </div>
+    </div> <hr class="mt-5">
+
+    <div class="hero-actions" id="messages">
+
+      <h1 class="text-center " style="color:#c9a227">📜 Messages 📜</h1><hr>
+        <a href="https://www.youtube.com/@LhaMinistries" class="btn d-flex justify-content-center mb-5" id="mesbtn" >Watch Online</a>
+
+        <div class="video d-flex justify-content-center mb-5" id="vids">
+          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/M2n8WDeVddU?si=MDut5X2gOqOYwY_F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p class="ver  mb-5 d-flex justify-content-center " style="color: #6b6258;">✝️📖🙏🕊️ Check Our Channel For More Videos ✝️📖🙏🕊️​</p>
+      </div><hr>
+      <div class="pt">
+        <h3 class="ver mt-3 mb-5 d-flex justify-content-center " id="pt" style="color: #c9a227;">📖🙏 Prayer Timings 📖🙏​</h3>
+        <p class="blockquote-footer container ">ஏனெனில், இரண்டு பேராவது மூன்று பேராவது என் நாமத்தினாலே எங்கே கூடியிருக்கிறார்களோ, அங்கே அவர்கள் நடுவிலே இருக்கிறேன் என்றார். <br> <span class="d-flex justify-content-center ">மத்தேயு 18:20</span> </p>
+        <div class="container">
+          <ul class="d-grid text-center mt-5" id="serv">
+            <li><strong>✟ SUNDAY ✟</strong><br> <span style="font-weight:500;">  Sunday Service ( ⏱️ 9:15 AM to 12:00 PM) </span></li><br>
+            <li><strong>✟ MONDAY ✟</strong><br> <span style="font-weight:500;"> 12 Hours Chain Prayer ( ⏱️ 06:00 AM to 06:00 PM) </span></li><br>
+            <li><strong>✟ TUESDAY ✟</strong><br> <span style="font-weight:500;"> Family Blessing Prayer ( ⏱️ 10:30 AM to 12:30 PM) </span></li><br>
+            <li><strong>✟ THURSDAY ✟</strong><br> <span style="font-weight:500;"> Bible Study ( ⏱️ 06:30 PM to 07:30 PM) </span></li><br>
+            <li><strong>✟ FRIDAY ✟</strong><br> <span style="font-weight:500;"> Healing and Deliverance Fasting Prayer ( ⏱️ 10:30 AM to 12:30 PM)</span></li><br>
+          </ul>
+        </div>
+      </div> <hr class="mt-5">
+
+<section id="Events" class="mt-5">
+  <h3 class="ver mt-3 mb-5 d-flex justify-content-center " style="color: #c9a227;">🎬 Events 🎬​</h3>
+  <div class="wrap">
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🧸</div>
+        <h3>Kids Ministry</h3>
+        <p>Safe, fun, Bible-based programming for both boys and girl from nursey to 8th grade</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎸</div>
+        <h3>Youth Group</h3>
+        <p>A place for middle and high schoolers to build friendships ,explore faith together and conduct children ministries.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Sunday Class</h3>
+        <p>Weekly once conducted by youth groups in the church.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎶</div>
+        <h3>Worship Team</h3>
+        <p>The church pastor conduct the worship followed by messages from the bible.</p>
+      </div>
+    </div>
+  </div>
+</section> <hr class="mb-5">
+
+<section id="events" class="mt-5 ">
+  <div class="wrap ">
+    <div class="section-head">
+      <span class="eyebrow-pill d-flex justify-content-center mb-4">What's coming up</span>
+      <h2 class="d-flex justify-content-center">Upcoming Events</h2>
+      <p class="d-flex justify-content-center">Mark your calendar — there's always something happening at LHA Church.</p>
+    </div><hr>
+    <div class="events-list">
+      <div class="event-row ">
+        <div class="date-badge "><div class="day">26</div><div class="mon">Sep</div></div>
+        <div class="event-info">
+          <h4>Children Camp</h4>
+          <p>The children will be held in our church on 26th September.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><hr>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="ms-5">
+        <div id="addr" class="text-light">
+        <div class="footer-logo"><span class="logo-mark">⛪</span> LHA Ministries</div>
+        <p>hello@riversidechurch.org</p>
+        <p>(555) 012-3456</p>
+        </div>
+        <iframe class="container " src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d846.8206934878151!2d78.12095540908398!3d8.798910025387725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1789184652823!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#contact">About Us</a></li>
+          <li><a href="#pt">Prayer Timings</a></li>
+          <li><a href="#messages">Messages</a></li>
+          <li><a href="#Events">Events</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay Connected</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/lhaministries?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==">Instagram</a></li>
+          <li><a href="https://www.youtube.com/@LhaMinistries">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+  </body>
+</html>
